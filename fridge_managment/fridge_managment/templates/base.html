@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}fridge Management{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'users:users_list' %}">users</a></li>
+        <li><a href="{% url 'foods:foods' %}">foods</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <main>{% block content %}{% endblock %}</main>
+
+      <aside>
+        <h2>About</h2>
+        <p>
+          This is a food management system. Click on "users"
+          link to view a list of users_list and their details. Click on the
+          "foods" link to view a list of foods that each user has eaten. The "Home"
+          link takes you back to this page.
+        </p>
+      </aside>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ user.title }}</h1>
+  <p>{{ user.description }}</p>
+  <p>Start date: {{ user.start_date }}</p>
+  <p>End date: {{ user.end_date }}</p>
+  <a href="{% url 'users:user_edit' pk=user.pk %}">Edit this user</a>
+  <form action="{% url 'users:user_delete' pk=user.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Delete this user">
+  </form>
+{% endblock %}
